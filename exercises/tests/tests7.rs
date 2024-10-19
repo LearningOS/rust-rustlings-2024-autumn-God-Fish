@@ -34,9 +34,17 @@
 // Execute `rustlings hint tests7` or use the `hint` watch subcommand for a
 // hint.
 
-// I AM NOT DONE
+use std::env;
+use std::time::{SystemTime, UNIX_EPOCH};
 
-fn main() {}
+fn main() {
+    let current_time = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .expect("Failed to get current time")
+        .as_secs();
+
+    println!("cargo:Your command here with {}, please checkout exercises/tests/build.rs", current_time);
+}
 
 #[cfg(test)]
 mod tests {
